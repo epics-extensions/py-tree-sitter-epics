@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "py-tree-sitter-epics"
+version = "0.1.0"
+description = "Facilitate tree-sitter-epics parsing in python"
+authors = ["Alexis Gaget <alexis.gaget@cea.fr>"]
+readme = "README.md"
+packages = [{include = "py_tree_sitter_epics"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+select = ["ALL"]
+ignore = [
+  # one-blank-line-before-class
+  "D203",
+  # multi-line-summary-second-line
+  "D213",
+]

@@ -1,0 +1,3 @@
+[submodule "py_tree_sitter_epics/tree-sitter-epics"]
+	path = py_tree_sitter_epics/tree-sitter-epics
+	url = https://github.com/epics-extensions/tree-sitter-epics.git
