@@ -192,8 +192,8 @@ class DbParser:
     def build_infos(self: DbParser, node: any) -> list:
         """From a tree-sitter node built a list of tuple."""
         logging.info("Building Infos from node ")
-        info_name = node[2].text.decode("utf-8")
-        info_value = node[4].text.decode("utf-8")
+        info_name = node[2].text.decode("utf-8").replace('"', "")
+        info_value = node[4].text.decode("utf-8").replace('"', "")
         return info_name, info_value
 
     def build_records_list(self: DbParser) -> list:
@@ -216,7 +216,7 @@ class DbParser:
             logging.debug("child.type : %s", child.type)
             match child.type:
                 case "comment":
-                    last_comment += child.text.decode("utf-8")
+                    last_comment += child.text.decode("utf-8").replace('"', "")
                     logging.debug("comment : %s", last_comment)
                 case "record_instance":
                     logging.debug("record_instance")
@@ -229,10 +229,14 @@ class DbParser:
                     for record_child in child.children:
                         match record_child.type:
                             case "record_type":
-                                record_type = record_child.text.decode("utf-8")
+                                record_type = record_child.text.decode("utf-8").replace(
+                                    '"', "",
+                                )
                                 record_obj.set_record_type(record_type)
                             case "record_name":
-                                record_name = record_child.text.decode("utf-8")
+                                record_name = record_child.text.decode("utf-8").replace(
+                                    '"', "",
+                                )
                                 record_obj.set_record_name(record_name)
                             case "field":
                                 (
