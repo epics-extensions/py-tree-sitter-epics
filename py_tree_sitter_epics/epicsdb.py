@@ -130,7 +130,11 @@ class Record:
         for link_out in self.links_out:
             if link_out is not None:
                 output += (
-                    "Link Out: " + link_out.record_name + " " + link_out.type_link + "\n"
+                    "Link Out: "
+                    + link_out.record_name
+                    + " "
+                    + link_out.type_link
+                    + "\n"
                 )
         for info in self.infos:
             output += "Info : " + info[0] + " , " + info[1]
