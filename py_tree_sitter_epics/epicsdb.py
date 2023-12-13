@@ -122,15 +122,15 @@ class Record:
         output += "Description : " + self.description + "\n"
         for name, value in self.fields:
             output += "Field : " + name + " = " + value + "\n"
-        for linkin in self.links_in:
-            if linkin is not None:
+        for link_in in self.links_in:
+            if link_in is not None:
                 output += (
-                    "Link In: " + linkin.record_name + " " + linkin.type_link + "\n"
+                    "Link In: " + link_in.record_name + " " + link_in.type_link + "\n"
                 )
-        for linkout in self.links_out:
-            if linkout is not None:
+        for link_out in self.links_out:
+            if link_out is not None:
                 output += (
-                    "Link Out: " + linkout.record_name + " " + linkout.type_link + "\n"
+                    "Link Out: " + link_out.record_name + " " + link_out.type_link + "\n"
                 )
         for info in self.infos:
             output += "Info : " + info[0] + " , " + info[1]
@@ -189,6 +189,19 @@ class DbParser:
             link_out = Link.create_link(field_value)
         return field_name, field_value, link_in, link_out
 
+    def build_comment(
+        self: DbParser,
+        child: tree_sitter.Node,
+        last_comment: str,
+        last_line_commented: int,
+    ) -> tuple(str, int):
+        """From a tree-sitter node built a list of tuple."""
+        this_line = child.start_point[0]
+        if this_line - last_line_commented > 1:
+            last_comment = ""
+        last_comment += child.text.decode("utf-8").replace('"', "") + " "
+        return last_comment, child.start_point[0]
+
     def build_infos(self: DbParser, node: any) -> list:
         """From a tree-sitter node built a list of tuple."""
         logging.info("Building Infos from node ")
@@ -209,14 +222,19 @@ class DbParser:
             message = "Syntax error: check syntax or if it is real EPICS databases."
             raise DbParserError(message)
 
-        logging.info("Syntax analysing correct")
+        logging.info("Syntax analyzing correct")
         record_list = []
         last_comment = ""
+        last_line_commented = 0
         for child in root_node.children:
             logging.debug("child.type : %s", child.type)
             match child.type:
                 case "comment":
-                    last_comment += child.text.decode("utf-8").replace('"', "")
+                    last_comment, last_line_commented = self.build_comment(
+                        child,
+                        last_comment,
+                        last_line_commented,
+                    )
                     logging.debug("comment : %s", last_comment)
                 case "record_instance":
                     logging.debug("record_instance")
@@ -230,12 +248,14 @@ class DbParser:
                         match record_child.type:
                             case "record_type":
                                 record_type = record_child.text.decode("utf-8").replace(
-                                    '"', "",
+                                    '"',
+                                    "",
                                 )
                                 record_obj.set_record_type(record_type)
                             case "record_name":
                                 record_name = record_child.text.decode("utf-8").replace(
-                                    '"', "",
+                                    '"',
+                                    "",
                                 )
                                 record_obj.set_record_name(record_name)
                             case "field":
