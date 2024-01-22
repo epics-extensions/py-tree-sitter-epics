@@ -38,7 +38,7 @@ for record in reccord_list:
     record.print_to_text()
 ```
 
-```{mermaid}
+``` mermaid
 classDiagram
     Record--o Link : 0..1
     class Link {
