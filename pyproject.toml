@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-tree-sitter-epics"
-version = "0.1.5"
+version = "0.2
 description = "Facilitate tree-sitter-epics parsing in python"
 authors = ["Alexis Gaget <alexis.gaget@cea.fr>"]
 readme = "README.md"
@@ -8,6 +8,8 @@ packages = [{include = "py_tree_sitter_epics"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+tree-sitter = "^0.25.2"
+tree-sitter-epics-db = "^0.2.0"
 
 
 [build-system]
