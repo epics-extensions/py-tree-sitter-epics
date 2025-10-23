@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-tree-sitter-epics"
-version = "0.2.1"
+version = "0.2.2"
 description = "Facilitate tree-sitter-epics parsing in python"
 authors = ["Alexis Gaget <alexis.gaget@cea.fr>"]
 readme = "README.md"
