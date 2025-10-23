@@ -11,7 +11,7 @@ import logging
 from pathlib import Path
 
 import tree_sitter
-import tree_sitter_db
+import tree_sitter_epics_db
 
 
 class DbParserError(Exception):
@@ -150,10 +150,10 @@ class DbParser:
         current_directory = Path(Path(__file__).resolve()).parent
         relative_path = Path(current_directory) / "tree-sitter-epics/epics-db"
 
-        db_language = Language(tree_sitter_db.language())
+        db_language = tree_sitter.Language(tree_sitter_epics_db.language())
 
-        parser_tree = tree_sitter.Parser()
-        parser_tree.set_language(db_language)
+        parser_tree = tree_sitter.Parser(db_language)
+        #parser_tree.set_language(db_language)
         self.parserTree = parser_tree
         self.tree = None
         self.root_node = None
