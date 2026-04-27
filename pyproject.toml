@@ -1,28 +1,50 @@
-[tool.poetry]
+[project]
 name = "py-tree-sitter-epics"
 version = "0.2.2"
 description = "Facilitate tree-sitter-epics parsing in python"
-authors = ["Alexis Gaget <alexis.gaget@cea.fr>"]
 readme = "README.md"
-packages = [{include = "py_tree_sitter_epics"}]
+authors = [
+	{ name = "Alexis Gaget", email = "alexis.gaget@cea.fr" },
+	{ name = "Rémi Nicole", email = "remi.nicole@cea.fr" },
+]
+maintainers = [
+	{ name = "Alexis Gaget", email = "alexis.gaget@cea.fr" },
+	{ name = "Rémi Nicole", email = "remi.nicole@cea.fr" },
+]
+keywords = ["epics", "tree-sitter"]
+classifiers = [
+	"Development Status :: 4 - Beta",
+	"Intended Audience :: Developers",
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
+	"Programming Language :: Python :: 3.13",
+	"Programming Language :: Python :: 3.14",
+]
+requires-python = ">= 3.10"
+dependencies = [
+	"tree-sitter>=0.25.2",
+	"tree-sitter-epics-db>=0.2.0",
+	"pytest>=8.4",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-tree-sitter = "^0.25.2"
-tree-sitter-epics-db = "^0.2.0"
-pytest = "^8.4.2"
-
+[project.urls]
+Issues = "https://github.com/epics-extensions/py-tree-sitter-epics/issues"
+Source = "https://github.com/epics-extensions/py-tree-sitter-epics"
 
 [build-system]
-requires =["poetry-core>=1.5.0"]
+requires = ["poetry-core>=1.5.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry]
+packages = [{ include = "py_tree_sitter_epics" }]
 
 [tool.ruff]
 select = ["ALL"]
 ignore = [
-  # one-blank-line-before-class
-  "D203",
-  # multi-line-summary-second-line
-  "D213",
+	# one-blank-line-before-class
+	"D203",
+	# multi-line-summary-second-line
+	"D213",
 ]
