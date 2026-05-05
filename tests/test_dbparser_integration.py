@@ -91,9 +91,7 @@ record(ai, "BROKEN:REC") {
     invalid_file.write_text(invalid_text)
 
     parser = DbParser()
-    parser.parse(invalid_file.read_text())
-
     # Comme la syntaxe est invalide, build_records_list doit lever une erreur
     with pytest.raises(DbParserError):
+        parser.parse(invalid_file.read_text())
         parser.build_records_list()
-
