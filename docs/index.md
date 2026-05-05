@@ -4,5 +4,13 @@
 :titlesonly:
 :hidden:
 
+changelog
+```
+
+```{toctree}
+:caption: API reference
+:titlesonly:
+:hidden:
+
 epicsdb
 ```
