@@ -11,6 +11,8 @@ maintainers = [
 	{ name = "Alexis Gaget", email = "alexis.gaget@cea.fr" },
 	{ name = "Rémi Nicole", email = "remi.nicole@cea.fr" },
 ]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 keywords = ["epics", "tree-sitter"]
 classifiers = [
 	"Development Status :: 4 - Beta",
