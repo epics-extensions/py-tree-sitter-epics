@@ -40,6 +40,8 @@ dependencies = [
 docs = ["sphinx", "furo", "myst-parser"]
 
 [project.urls]
+Documentation = "https://py-tree-sitter-epics.readthedocs.io/en/stable/"
+Changelog = "https://py-tree-sitter-epics.readthedocs.io/en/stable/changelog.html"
 Issues = "https://github.com/epics-extensions/py-tree-sitter-epics/issues"
 Source = "https://github.com/epics-extensions/py-tree-sitter-epics"
 
