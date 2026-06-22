@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ```{py:currentmodule} py_tree_sitter_epics
 ```
 
-## [Unreleased]
+## [0.3.0] --- 2026-06-22
 
 ### Added
 
@@ -53,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - The record's `print_to_text` function was removed
 
-  [Unreleased]: https://github.com/epics-extensions/py-tree-sitter-epics/compare/v0.2.2...main
+  [0.3.0]: https://github.com/epics-extensions/py-tree-sitter-epics/releases/tag/v0.3.0
 
 ## [0.2.2] --- 2025-10-23
 
