@@ -23,6 +23,11 @@ classifiers = [
 	"Programming Language :: Python :: 3.12",
 	"Programming Language :: Python :: 3.13",
 	"Programming Language :: Python :: 3.14",
+	"Topic :: Documentation",
+	"Topic :: Documentation :: Sphinx",
+	"Framework :: Sphinx",
+	"Framework :: Sphinx :: Domain",
+	"Framework :: Sphinx :: Extension",
 ]
 requires-python = ">= 3.10"
 dependencies = [
