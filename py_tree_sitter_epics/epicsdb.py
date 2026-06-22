@@ -318,14 +318,7 @@ def _select_doc_comments(comments: list[Node], record: Node) -> list[Node] | Non
 
 def _comments_to_str(comments: list[Node], prefix: str = "#") -> str:
     comments_txt = [(comment.text or b"").decode() for comment in comments]
-
-    prefix = (
-        prefix + " "
-        if all(comment.startswith(prefix + " ") for comment in comments_txt)
-        else prefix
-    )
-
-    return "\n".join(comment.removeprefix(prefix) for comment in comments_txt)
+    return "\n".join(comment.removeprefix(prefix).removeprefix(" ") for comment in comments_txt)
 
 
 def _process_comments(comments: list[Node], record: Node) -> str | None:
