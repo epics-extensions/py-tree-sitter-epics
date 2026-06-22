@@ -6,9 +6,6 @@ build:
   tools:
     python: "3.14"
 
-formats:
-  - pdf
-
 python:
   install:
     - method: pip
