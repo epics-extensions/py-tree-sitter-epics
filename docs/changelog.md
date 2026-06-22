@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ```{py:currentmodule} py_tree_sitter_epics
 ```
 
+## [Unreleased]
+
+   [Unreleased]: https://github.com/epics-extensions/py-tree-sitter-epics/compare/v0.3.0...main
+
 ## [0.3.0] --- 2026-06-22
 
 ### Added
